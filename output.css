@@ -11944,6 +11944,10 @@ details.collapse summary::-webkit-details-marker {
     width: 33.333333%;
   }
 
+  .md\:w-96 {
+    width: 24rem;
+  }
+
   .md\:w-\[50\%\] {
     width: 50%;
   }
@@ -11962,6 +11966,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:min-w-\[457px\] {
     min-width: 457px;
+  }
+
+  .md\:min-w-96 {
+    min-width: 24rem;
   }
 
   .md\:max-w-96 {
