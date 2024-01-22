@@ -53,7 +53,7 @@ include "navbar.php";
             <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center md:justify-start md:p-20">
               <span class="text-white text-[24px] md:text-[96px] font-bigShoulders font-black md:w-1/3"><?php echo strtoupper($result['headline'])?></span>
             </div>
-            <div class="absolute bottom-0 right-0 p-6 text-white hidden md:block md:w-[50%]">
+            <div class="absolute bottom-0 right-0 p-6 md:p-20 text-white hidden md:block md:w-[50%]">
               <p class="text-[20px]"><?php echo $result['deskripsi']?></p>
             </div>
           </div>
