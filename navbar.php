@@ -19,7 +19,7 @@
 
 <nav class="fixed z-50 w-full bg-white md:bg-transparent" style="backdrop-filter: blur(2px);">
   <div class="flex flex-wrap items-center justify-between mx-auto p-6 md:px-20">
-    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="./Logo.svg" alt="Flowbite Logo" class="h-16" />
     </a>
     <button id="toggleButton" data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 bg-[#00A693] w-10 h-10 justify-center text-sm rounded-md md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
