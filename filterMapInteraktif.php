@@ -56,7 +56,7 @@ include "navbar.php";
     ?>
 <body class="bg-[#ACC4FF] overflow-x-hidden">
     <section class="flex pt-28 md:pt-14 flex-col-reverse md:flex-row">
-        <div class="md:min-w-96 bg-[#D6F2FF] p-6">
+        <div class="md:min-w-96 md:max-w-96 bg-[#D6F2FF] p-6">
             <form class="pt-6 md:pt-16", action=<?php echo "filterMapInteraktif.php?kategori=".$_GET['kategori']?> method="POST">
                 <div class="flex">
                     <div class="relative w-full">
