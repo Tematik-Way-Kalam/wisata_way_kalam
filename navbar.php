@@ -79,6 +79,19 @@
       });
     }
 
+    // Function to handle scroll event
+    function handleScroll() {
+      // Add or remove the 'scrolled' class based on scroll position
+      if (window.scrollY > 0) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    // Add scroll event listener to handle scrolling
+    window.addEventListener('scroll', handleScroll);
+
     // Add a click event listener to the button
     toggleButton.addEventListener('click', function() {
       // Toggle the 'hidden' class on the navbar
