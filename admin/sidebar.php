@@ -12,7 +12,7 @@ if(empty($_SESSION['status'])){
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <div class="brand-link">
-      <img src="dist/img/lamsel.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
+      <img src="../Logo.svg" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Wisata Way Kalam</span>
     </div>
     <!-- Sidebar -->

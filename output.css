@@ -9283,6 +9283,10 @@ details.collapse summary::-webkit-details-marker {
   margin-inline-end: 0.5rem;
 }
 
+.me-20 {
+  margin-inline-end: 5rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -11037,6 +11041,18 @@ details.collapse summary::-webkit-details-marker {
   padding-top: 1.5rem;
 }
 
+.pr-20 {
+  padding-right: 5rem;
+}
+
+.pr-40 {
+  padding-right: 10rem;
+}
+
+.pr-6 {
+  padding-right: 1.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -12119,6 +12135,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .md\:pr-40 {
+    padding-right: 10rem;
   }
 
   .md\:text-2xl {

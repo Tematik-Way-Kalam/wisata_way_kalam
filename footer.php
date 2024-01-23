@@ -1,6 +1,14 @@
 <?php
     $sql = mysqli_query($mysqli, "SELECT * FROM info");
     $result = mysqli_fetch_array($sql);
+    function link_m($link){
+      if(!preg_match("~^(?:f|ht)tps?://~i", $link)){
+        $link = "http://" . $link;
+        return $link;
+      }else{
+        return $link;
+      }
+    }
   ?>
   <footer id="kontak" class="bg-[#132758] w-screen shadow flex justify-center" style="background-image: url(./images/footerVector.png); background-repeat: no-repeat; background-size: cover; background-position: center;">
     <div class="w-full p-4 md:p-20">
@@ -9,12 +17,12 @@
           <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">HUBUNGI KAMI</h2>
           <p class="font-bigShoulders text-[20px] md:text-[64px] text-left font-black bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">MASIH RAGU DAN MEMILIKI BANYAK PERTANYAAN?</p>
         </div>
-        <div class="md:w-[50%]">
+        <div class="md:w-[50%]" id="kontak">
           <p class="md:text-[20px] mb-8 text-white w-[80%]"><?php echo $result['alamat']." ".$result['nomor_telp']?></p>
           <div class="">
-            <a href=<?php echo $result['link_ig']?> class="px-2"><i class="fa-brands fa-instagram fa-2xl text-white"></i></a>
-            <a href=<?php echo $result['link_fb']?> class="px-2"><i class="fa-brands fa-facebook fa-2xl text-white"></i></a>
-            <a href=<?php echo $result['link_website']?> class="px-2"><i class="fa-solid fa-globe fa-2xl text-white"></i></a>
+            <a href=<?php echo link_m($result['link_ig'])?> class="px-2"><i class="fa-brands fa-instagram fa-2xl text-white"></i></a>
+            <a href=<?php echo link_m($result['link_fb'])?> class="px-2"><i class="fa-brands fa-facebook fa-2xl text-white"></i></a>
+            <a href=<?php echo link_m($result['link_website'])?> class="px-2"><i class="fa-solid fa-globe fa-2xl text-white"></i></a>
           </div>
         </div>
       </div>

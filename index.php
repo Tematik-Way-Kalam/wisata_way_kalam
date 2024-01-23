@@ -97,7 +97,7 @@ include "navbar.php";
 
   <section class="px-6 md:px-20 py-10 md:py-20 bg-[#E2F6FF] overflow-hidden" style="background-image: url(./images/bg1.svg); background-repeat: no-repeat; background-size: cover;">
     <div id="wisata"></div>
-    <div class="flex justify-center w-full items-center flex-col md:flex-row">
+    <div class="flex justify-center w-full items-center flex-col md:flex-row" id="wisata">
       <div class="md:w-[50%]">
         <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">WISATA</h2>
         <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]">EXPLORE NOW,</p>
@@ -143,32 +143,32 @@ include "navbar.php";
     </div>
 
     <div id="umkm"></div>
-    <div class="py-10 flex justify-center w-screen items-center md:py-20 flex-col md:flex-row overflow-hidden">
-  <div class="w-full md:w-[50%]">
-    <h2 class="font-bigShoulders text-[20px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PRODUK UMKM DESA</h2>
-    <p class="font-bigShoulders text-[32px] md:text-[64px] font-black text-[#132758] pb-8">YUK, LIAT PRODUK UMKM DESA WAY KALAM!</p>
-    <a href="#" class="my-10 md:my-0 py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:py-3 md:px-6">
-      <span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-  <div class="md:ms-20">
-    <div class="carousel space-x-4 mt-20 relative">
-      <?php
-      $sql = mysqli_query($mysqli, "SELECT * FROM wisata a INNER JOIN produk b ON a.id_wisata = b.id_wisata WHERE a.kategori = 'Warung/Toko' or a.kategori = 'UMKM'");
-      while($result = mysqli_fetch_array($sql)){
-      ?>
-        <div class="carousel-item h-[25rem] md:h-[50rem] md:max-w-[20rem] md:min-w-[20rem] relative">
-          <img class="rounded-lg" src=<?php echo "./gambar_produk/".$result['gambar_produk']?> alt="Banana" />
-          <p class="text-white font-black uppercase text-[32px] font-bigShoulders py-2 px-4 rounded-md absolute bottom-0 left-0 right-0 text-center">
-            <?php echo $result['nama_produk']; ?>
-          </p>
+    <div class="py-10 flex justify-center w-screen items-center md:py-20 flex-col md:flex-row overflow-hidden" id="umkm">
+      <div class="w-full md:w-[50%]">
+        <h2 class="font-bigShoulders text-[20px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PRODUK UMKM DESA</h2>
+        <p class="font-bigShoulders text-[32px] md:text-[64px] font-black text-[#132758] pb-8">YUK, LIAT PRODUK UMKM DESA WAY KALAM!</p>
+        <a href="#" class="my-10 md:my-0 py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:py-3 md:px-6">
+          <span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="md:ms-20">
+        <div class="carousel space-x-4 mt-20 relative pr-6 md:pr-40">
+          <?php
+          $sql = mysqli_query($mysqli, "SELECT * FROM wisata a INNER JOIN produk b ON a.id_wisata = b.id_wisata WHERE a.kategori = 'Warung/Toko' or a.kategori = 'UMKM'");
+          while ($result = mysqli_fetch_array($sql)) {
+          ?>
+            <div class="carousel-item h-[25rem] md:h-[50rem] relative">
+              <img class="rounded-lg" src=<?php echo "./gambar_produk/" . $result['gambar_produk'] ?> alt="Banana" />
+              <p class="text-white font-black uppercase text-[32px] font-bigShoulders py-2 px-4 rounded-md absolute bottom-0 left-0 right-0 text-center">
+                <?php echo $result['nama_produk']; ?>
+              </p>
+            </div>
+          <?php
+          }
+          ?>
         </div>
-      <?php
-      }
-      ?>
+      </div>
     </div>
-  </div>
-</div>
 
 
   </section>
@@ -256,9 +256,9 @@ include "navbar.php";
 
   <section class="p-6 md:p-20">
     <div class="bg-[#132758] flex flex-col py-6 md:p-20 rounded-3xl gap-10 md:gap-20 items-center" style="background-image: url(./images/bg-mi.png); background-repeat: no-repeat; background-size: cover;">
-      <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">MAP INTERAKTIF</h2>
-      <p class="font-bigShoulders text-[20px] md:text-[64px] md:w-[50%] text-center font-black bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">TAKUT NYASAR? TEMUKAN PETANYA DISINI!</p>
-      <a href="./mapInteraktif.php" class="py-4 px-8 text-[#132758] bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] rounded-lg hover:bg-gray-100 md:border-0 md:hover:text-blue-700 md:py-3 md:px-6 flex items-center"><span class="me-2 font-bold text-base md:text-[14px]">Map Interaktif</span><img src="./images/icon-map-dark.svg" alt="map"></a>
+      <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">DENAH INTERAKTIF</h2>
+      <p class="font-bigShoulders text-[20px] md:text-[64px] md:w-[50%] text-center font-black bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">AYO JELAJAHI DESA BERSAMA</p>
+      <a href="./mapInteraktif.php" class="py-4 px-8 text-[#132758] bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] rounded-lg hover:bg-gray-100 md:border-0 md:hover:text-blue-700 md:py-3 md:px-6 flex items-center"><span class="me-2 font-bold text-base md:text-[14px]">Map Desa</span><img src="./images/icon-map-dark.svg" alt="map"></a>
     </div>
   </section>
   <?php include "footer.php" ?>
