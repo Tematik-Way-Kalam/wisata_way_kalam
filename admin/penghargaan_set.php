@@ -51,6 +51,7 @@ if(isset($_GET['type']) && $_GET['type'] == 'tambah'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = str_replace(' ', '_', $nama_file);
     $path = "../gambar_penghargaan/".$nama_file;
     move_uploaded_file($tmp_file, $path);
     $sql = mysqli_query($mysqli, "INSERT INTO penghargaan (gambar, headline, deskripsi) VALUES ('$nama_file', '$nama', '$deskripsi')");
@@ -76,10 +77,11 @@ if(isset($_GET['type']) && $_GET['type'] == 'edit'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
-    $path = "../gambar_penghargaan/".$nama_file;
     if($nama_file == ''){ 
         $sql = mysqli_query($mysqli, "UPDATE penghargaan SET headline = '$nama', deskripsi = '$deskripsi' WHERE id_penghargaan = '$id'");
     }else{
+        $nama_file = str_replace(' ', '_', $nama_file);
+        $path = "../gambar_penghargaan/".$nama_file;
         move_uploaded_file($tmp_file, $path);
         $sql = mysqli_query($mysqli, "UPDATE penghargaan SET gambar = '$nama_file', headline = '$nama', deskripsi = '$deskripsi' WHERE id_penghargaan = '$id'");
     }

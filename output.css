@@ -10954,6 +10954,11 @@ details.collapse summary::-webkit-details-marker {
   padding-right: 0.75rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -11944,10 +11949,6 @@ details.collapse summary::-webkit-details-marker {
     width: 33.333333%;
   }
 
-  .md\:w-96 {
-    width: 24rem;
-  }
-
   .md\:w-\[50\%\] {
     width: 50%;
   }
@@ -11964,16 +11965,24 @@ details.collapse summary::-webkit-details-marker {
     width: auto;
   }
 
-  .md\:min-w-\[457px\] {
-    min-width: 457px;
-  }
-
   .md\:min-w-96 {
     min-width: 24rem;
   }
 
+  .md\:min-w-\[20rem\] {
+    min-width: 20rem;
+  }
+
+  .md\:min-w-\[457px\] {
+    min-width: 457px;
+  }
+
   .md\:max-w-96 {
     max-width: 24rem;
+  }
+
+  .md\:max-w-\[20rem\] {
+    max-width: 20rem;
   }
 
   .md\:flex-row {

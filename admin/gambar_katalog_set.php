@@ -66,6 +66,7 @@ if(isset($_GET['type']) && $_GET['type'] == 'tambah'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = str_replace(' ', '_', $nama_file);
     $path = "../gambar_katalog/".$nama_file;
     move_uploaded_file($tmp_file, $path);
     $sql = mysqli_query($mysqli, "INSERT INTO gambar_katalog (gambar_katalog, id_lokasi) VALUES ('$nama_file', '$kategori')");
@@ -95,9 +96,10 @@ if(isset($_GET['type']) && $_GET['type'] == 'edit'){
     $ukuran_file   = $_FILES['gambar']['size'];
     $tipe_file     = $_FILES['gambar']['type'];
     $tmp_file      = $_FILES['gambar']['tmp_name'];
-    $path          = "../gambar_katalog/".$nama_file;
         
     if($nama_file != ''){
+        $nama_file = str_replace(' ', '_', $nama_file);
+        $path = "../gambar_katalog/".$nama_file;
         move_uploaded_file($tmp_file, $path);
         $sql = mysqli_query($mysqli, "UPDATE gambar_katalog SET gambar_katalog = '$nama_file', id_lokasi = '$kategori' WHERE id_gambar_katalog = '$id'");
     }else{

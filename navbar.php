@@ -48,7 +48,7 @@
         </li>
         <li>
           <a href="./mapInteraktif.php" id="map" class="py-3 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:border-0 md:hover:text-white md:p-y-3 md:px-6 md:hover:bg-[#132758] flex items-center">
-            <span class="me-2">Map Interaktif</span>
+            <span class="me-2">Map Desa</span>
             <img src="./images/icon-map.svg" alt="map" class="h-12" style="height: 2rem;">
           </a>
         </li>

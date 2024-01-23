@@ -79,6 +79,7 @@ if(isset($_GET['type']) && $_GET['type'] == 'tambah'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = str_replace(' ', '_', $nama_file);
     $path = "../gambar_produk/".$nama_file;
     move_uploaded_file($tmp_file, $path);
     $sql = mysqli_query($mysqli, "INSERT INTO produk (gambar_produk, nama_produk, id_wisata) VALUES ('$nama_file', '$nama_produk', '$wisata')");
@@ -110,10 +111,11 @@ if(isset($_GET['type']) && $_GET['type'] == 'edit'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
-    $path = "../gambar_produk/".$nama_file;
     if($nama_file == ''){ 
         $sql = mysqli_query($mysqli, "UPDATE produk SET nama_produk = '$nama_produk', id_wisata = '$wisata' WHERE id_produk = '$id'");
     }else{
+        $nama_file = str_replace(' ', '_', $nama_file);
+        $path = "../gambar_produk/".$nama_file;
         move_uploaded_file($tmp_file, $path);
         $sql = mysqli_query($mysqli, "UPDATE produk SET gambar_produk = '$nama_file', nama_produk = '$nama_produk', id_wisata = '$wisata' WHERE id_produk = '$id'");
     }

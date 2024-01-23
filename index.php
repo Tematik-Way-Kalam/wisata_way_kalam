@@ -44,22 +44,22 @@ include "navbar.php";
 
     <!--Carousel items-->
     <div class="relative w-screen overflow-hidden after:clear-both after:block after:content-[''] h-screen">
-      <?php 
-        $sql = mysqli_query($mysqli, "SELECT * FROM slide");
-        while($result = mysqli_fetch_array($sql)){
-          ?>
-          <div class="relative float-left -mr-[100%] w-full h-[100%] transition-transform duration-[2000ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-            <img src=<?php echo "./gambar_slide/".$result['gambar']?> class="block w-full h-full object-cover" alt="air terjun way kalam" />
-            <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center md:justify-start md:p-20">
-              <span class="text-white text-[24px] md:text-[96px] font-bigShoulders font-black md:w-1/3"><?php echo strtoupper($result['headline'])?></span>
-            </div>
-            <div class="absolute bottom-0 right-0 p-6 md:p-20 text-white hidden md:block md:w-[50%]">
-              <p class="text-[20px]"><?php echo $result['deskripsi']?></p>
-            </div>
+      <?php
+      $sql = mysqli_query($mysqli, "SELECT * FROM slide");
+      while ($result = mysqli_fetch_array($sql)) {
+      ?>
+        <div class="relative float-left -mr-[100%] w-full h-[100%] transition-transform duration-[2000ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
+          <img src=<?php echo "./gambar_slide/" . $result['gambar'] ?> class="block w-full h-full object-cover" alt="air terjun way kalam" />
+          <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center md:justify-start md:p-20">
+            <span class="text-white text-[24px] md:text-[96px] font-bigShoulders font-black md:w-1/3"><?php echo strtoupper($result['headline']) ?></span>
           </div>
-          <?php
-        }
-      ?>  
+          <div class="absolute bottom-0 right-0 p-6 md:p-20 text-white hidden md:block md:w-[50%]">
+            <p class="text-[20px]"><?php echo $result['deskripsi'] ?></p>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
 
@@ -74,15 +74,15 @@ include "navbar.php";
 
   <!-- VISITOR N VIDEO -->
   <?php
-    $sql = mysqli_query($mysqli, "SELECT * FROM video");
-    $result = mysqli_fetch_array($sql);
-    $sql1 = mysqli_query($mysqli, "SELECT SUM(jumlah_pengunjung_air_terjun) AS total_pengunjung FROM statistik");
-    $result1 = mysqli_fetch_array($sql1);
-    $sql2 = mysqli_query($mysqli, "SELECT * FROM wisata WHERE kategori = 'Home Stay'");
-    $result2 = mysqli_num_rows($sql2);
+  $sql = mysqli_query($mysqli, "SELECT * FROM video");
+  $result = mysqli_fetch_array($sql);
+  $sql1 = mysqli_query($mysqli, "SELECT SUM(jumlah_pengunjung_air_terjun) AS total_pengunjung FROM statistik");
+  $result1 = mysqli_fetch_array($sql1);
+  $sql2 = mysqli_query($mysqli, "SELECT * FROM wisata WHERE kategori = 'Home Stay'");
+  $result2 = mysqli_num_rows($sql2);
   ?>
   <section class="py-10 md:py-0 px-6 md:px-10 md:pb-20 flex justify-center w-full items-center flex-col md:flex-row gap-4 md:gap-0 overflow-x-hidden">
-    <iframe src="<?php echo $result['link']?>" class="rounded-2xl w-full md:w-[810px] md:h-[457px] md:px-2 md:p-0" allowfullscreen allow='autoplay'></iframe>
+    <iframe src="<?php echo $result['link'] ?>" class="rounded-2xl w-full md:w-[810px] md:h-[457px] md:px-2 md:p-0" allowfullscreen allow='autoplay'></iframe>
     <div class="bg-[#132758] flex justify-center items-center flex-row md:flex-col rounded-2xl my-8 md:my-8 ms-0 md:ms-20 min-w-full min-h-full py-10 md:py-0 md:min-w-[457px] md:min-h-[457px] gap-10 md:gap-0" style="background-image: url(./images/visit.png); background-repeat: no-repeat; background-size: cover;">
       <div class="flex justify-center items-center flex-col">
         <p class="font-bigShoulders font-black text-[32px] md:text-[64px]" style=" background: var(--p2, linear-gradient(137deg, #fff 24.22%, #7cdbf0 105.58%)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><?php echo $result1['total_pengunjung'] ?></p>
@@ -100,106 +100,114 @@ include "navbar.php";
     <div class="flex justify-center w-full items-center flex-col md:flex-row">
       <div class="md:w-[50%]">
         <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">WISATA</h2>
-        <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]">EXPLORE THE VILLAGE AND PRECISION BEHIN OUR HEALING AND ENJOY</p>
+        <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]">EXPLORE NOW,</p>
+        <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]">YOU WILL FIND A BEAUTIFUL UNKNOWN</p>
       </div>
       <div class="py-6 md:py-0 md:ms-20 md:w-[50%]">
         <p class="text-[#132758] md:text-[20px] mb-8">
-          Desa Wisata Way Kalam adalah salah satu dari sekian banyak desa wisata yang berkembang di wilayah Kabupaten Lampung Selatan.  Berlokasi di kawasan lereng gunung Rajabasa.
+          Sudah saatnya kamu melihat keindahan Desa Wisata Way Kalam. Bawa dirimu dan masuk ke pesona alam lebih dalam.
         </p>
-        <a href="#" class="hidden w-auto md:flex py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:border-0 md:hover:text-blue-700 md:p-y-3 md:px-6 items-center"><span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i></a>
+        <a href="./mapInteraktif.php" class="hidden w-auto md:flex py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:border-0 md:hover:text-blue-700 md:p-y-3 md:px-6 items-center"><span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
 
     <div class="pb-6 md:py-20 flex gap-6 md:gap-20 justify-center items-center flex-col md:flex-row">
-        <div class="container md:h-[50rem] flex flex-col md:flex-row md:grid" style="position: relative; grid-template-columns: 1fr 1fr 1fr; gap: 1em; transition: all 500ms;">
-        <?php 
-          $sql = mysqli_query($mysqli, "SELECT * FROM wisata WHERE kategori = 'wisata'");
-          $td = 1;
-          while($res = mysqli_fetch_array($sql)){
-            if($td > 3){
-              break;
-            }
-            ?>
-            <div class="box relative bg-[#17141f] bg-cover flex justify-start items-end rounded-lg w-auto" style="transition: all 500ms;">
-              <div class="absolute inset-0 m-0 h-full w-full overflow-hidden bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none rounded-2xl" style="background-image: url('<?php echo "./gambar_tempat/" . $res['gambar']; ?>');">
-                <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
-              </div>
-              <div class="relative p-6 px-6 py-14 md:px-12 text-left">
-                <h2 class="mb-6 block text-[32px] font-black font-bigShoulders leading-[1.5] tracking-normal text-white antialiased">
-                  <?php echo strtoupper($res['headline'])?>
-                </h2>
-                <h5 class="block mb-4 text-base md:text-xl antialiased font-normal leading-snug tracking-normal text-white">
-                  <?php echo $res['deskripsi'] ?>
-                </h5>
-                <a href="#" class="block py-4 px-8 text-center text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-[#132758] md:border-0 md:p-y-3 md:px-6"><span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
-            <?php
-            $td++;
+      <div class="container md:h-[50rem] flex flex-col md:flex-row md:grid" style="position: relative; grid-template-columns: 1fr 1fr 1fr; gap: 1em; transition: all 500ms;">
+        <?php
+        $sql = mysqli_query($mysqli, "SELECT * FROM wisata WHERE kategori = 'wisata'");
+        $td = 1;
+        while ($res = mysqli_fetch_array($sql)) {
+          if ($td > 3) {
+            break;
           }
         ?>
-        </div>
+          <div class="box relative bg-[#17141f] bg-cover flex justify-start items-end rounded-lg w-auto" style="transition: all 500ms;">
+            <div class="absolute inset-0 m-0 h-full w-full overflow-hidden bg-transparent bg-cover bg-clip-border bg-center text-gray-700 shadow-none rounded-2xl" style="background-image: url('<?php echo "./gambar_tempat/" . $res['gambar']; ?>');">
+              <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
+            </div>
+            <div class="relative p-6 px-6 py-14 md:px-12 text-left">
+              <h2 class="mb-6 block text-[32px] font-black font-bigShoulders leading-[1.5] tracking-normal text-white antialiased">
+                <?php echo strtoupper($res['headline']) ?>
+              </h2>
+              <h5 class="block mb-4 text-base md:text-xl antialiased font-normal leading-snug tracking-normal text-white">
+                <?php echo $res['deskripsi'] ?>
+              </h5>
+              <a href="#" class="block py-4 px-8 text-center text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-[#132758] md:border-0 md:p-y-3 md:px-6"><span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        <?php
+          $td++;
+        }
+        ?>
+      </div>
     </div>
 
     <div id="umkm"></div>
     <div class="py-10 flex justify-center w-screen items-center md:py-20 flex-col md:flex-row overflow-hidden">
-      <div class="w-full md:w-[50%]">
-        <h2 class="font-bigShoulders text-[20px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PRODUK UMKM DESA</h2>
-        <p class="font-bigShoulders text-[32px] md:text-[64px] font-black text-[#132758] pb-8">YUK, LIAT PRODUK UMKM DESA WAY KALAM!</p>
-        <a href="#" class="my-10 md:my-0 py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:py-3 md:px-6"><span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-      <div class="md:ms-20">
-        <div class="carousel space-x-4 mt-20">
-          <?php
-            $sql = mysqli_query($mysqli, "SELECT * FROM wisata a INNER JOIN produk b ON a.id_wisata = b.id_wisata WHERE a.kategori = 'Warung/Toko' or a.kategori = 'UMKM'");
-            while($result = mysqli_fetch_array($sql)){
-              ?>
-                <div class="carousel-item h-[25rem] md:h-[50rem]">
-                  <img class="rounded-lg" src=<?php echo "./gambar_produk/".$result['gambar_produk']?> alt="Banana" />
-                </div>
-              <?php
-            }
-          ?>
+  <div class="w-full md:w-[50%]">
+    <h2 class="font-bigShoulders text-[20px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PRODUK UMKM DESA</h2>
+    <p class="font-bigShoulders text-[32px] md:text-[64px] font-black text-[#132758] pb-8">YUK, LIAT PRODUK UMKM DESA WAY KALAM!</p>
+    <a href="#" class="my-10 md:my-0 py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:py-3 md:px-6">
+      <span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="md:ms-20">
+    <div class="carousel space-x-4 mt-20 relative">
+      <?php
+      $sql = mysqli_query($mysqli, "SELECT * FROM wisata a INNER JOIN produk b ON a.id_wisata = b.id_wisata WHERE a.kategori = 'Warung/Toko' or a.kategori = 'UMKM'");
+      while($result = mysqli_fetch_array($sql)){
+      ?>
+        <div class="carousel-item h-[25rem] md:h-[50rem] md:max-w-[20rem] md:min-w-[20rem] relative">
+          <img class="rounded-lg" src=<?php echo "./gambar_produk/".$result['gambar_produk']?> alt="Banana" />
+          <p class="text-white font-black uppercase text-[32px] font-bigShoulders py-2 px-4 rounded-md absolute bottom-0 left-0 right-0 text-center">
+            <?php echo $result['nama_produk']; ?>
+          </p>
         </div>
-      </div>
+      <?php
+      }
+      ?>
     </div>
+  </div>
+</div>
+
+
   </section>
 
   <section class="">
     <?php
-      $sql = mysqli_query($mysqli, "SELECT * FROM penghargaan_ld a INNER JOIN penghargaan b ON a.id_penghargaan = b.id_penghargaan");
-      $no = 1;
-      while($result = mysqli_fetch_array($sql)){
-        if($no == 1){
-        ?>
+    $sql = mysqli_query($mysqli, "SELECT * FROM penghargaan_ld a INNER JOIN penghargaan b ON a.id_penghargaan = b.id_penghargaan");
+    $no = 1;
+    while ($result = mysqli_fetch_array($sql)) {
+      if ($no == 1) {
+    ?>
         <div class="p-6 md:p-20 flex gap-10 md:gap-20 justify-center w-full items-center flex-col-reverse md:flex-row">
-          <div class="py-6 md:py-0 md:w-[50%]"><img src=<?php echo "./gambar_penghargaan/".$result['gambar']?> alt="Anugerah Desa Wisata Indonesia 2023"></div>
+          <div class="py-6 md:py-0 md:w-[50%]"><img src=<?php echo "./gambar_penghargaan/" . $result['gambar'] ?> alt="Anugerah Desa Wisata Indonesia 2023"></div>
           <div class="md:w-[50%]">
             <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PENGHARGAAN</h2>
-            <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]"><?php echo strtoupper($result['headline'])?></p>
-            <p class="md:text-[20px]"><?php echo $result['deskripsi']?> </p>
+            <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]"><?php echo strtoupper($result['headline']) ?></p>
+            <p class="md:text-[20px]"><?php echo $result['deskripsi'] ?> </p>
           </div>
         </div>
-        <?php
-        }else{
-          ?>
-          <div class="px-6 md:p-20 flex gap-10 md:gap-20 justify-center w-full items-center flex-col md:flex-row">
-            <div class="md:w-[50%]">
-              <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PENGHARGAAN</h2>
-              <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]"><?php echo strtoupper($result['headline'])?></p>
-              <p class="md:text-[20px]"><?php echo $result['deskripsi']?> </p>
-            </div>
-            <div class="py-6 md:py-0 md:w-[50%]"><img src=<?php echo "./gambar_penghargaan/".$result['gambar']?> alt="Anugerah Desa Wisata Indonesia 2023"></div>
+      <?php
+      } else {
+      ?>
+        <div class="px-6 md:p-20 flex gap-10 md:gap-20 justify-center w-full items-center flex-col md:flex-row">
+          <div class="md:w-[50%]">
+            <h2 class="font-bigShoulders text-[14px] md:text-[32px] font-black bg-gradient-to-br from-[#00A693] via-[#00A693] to-[#132758] inline-block text-transparent bg-clip-text">PENGHARGAAN</h2>
+            <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]"><?php echo strtoupper($result['headline']) ?></p>
+            <p class="md:text-[20px]"><?php echo $result['deskripsi'] ?> </p>
           </div>
-          <?php
-        }
-        $no++;
+          <div class="py-6 md:py-0 md:w-[50%]"><img src=<?php echo "./gambar_penghargaan/" . $result['gambar'] ?> alt="Anugerah Desa Wisata Indonesia 2023"></div>
+        </div>
+    <?php
       }
+      $no++;
+    }
     ?>
     <div class="bg-[#132758] w-screen flex p-6 md:p-20 gap-10 md:gap-20 items-center flex-col md:flex-row" style="background-image: url(./images/bg-penghargaan.png); background-repeat: no-repeat; background-size: cover;">
       <p class="md:w-[50%] font-bigShoulders text-[14px] md:text-[64px] font-black bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[#7CDBF0] inline-block text-transparent bg-clip-text">LIHAT PENGHARGAAN DESA WAY KALAM LEBIH BANYAK</p>
       <div class="md:w-[50%] py-6 md:py-0">
-        <p class="md:text-[20px] mb-8">Desa Wisata Way Kalam adalah salah satu dari sekian banyak desa wisata yang berkembang di wilayah Kabupaten Lampung Selatan</p>
+        <p class="md:text-[20px] mb-8">Telusuri lebih lanjut tentang Desa Wisata Way Kalam dan bangun kepecayaan mu. </p>
         <a href="tentang.php" class="my-6 py-4 px-8 text-white bg-[#00A693] rounded-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:py-3 md:px-6"><span class="me-2">Lihat Selengkapnya</span><i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
@@ -210,38 +218,38 @@ include "navbar.php";
     <p class="font-bigShoulders text-[20px] md:text-[64px] font-black text-[#132758]">AYO, BACA PENGALAMAN DAN CERITA SERU MEREKA!</p>
     <div class="w-full flex flex-col md:flex-row gap-6 md:gap-20 py-6">
       <?php
-        $sql = mysqli_query($mysqli, "SELECT * FROM testimoni");
-        while($res = mysqli_fetch_array($sql)){
-          ?>
-          <div class="bg-white p-6 md:w-[50%] rounded-lg">
-            <div class="flex pb-6">
-              <div class="avatar">
-                <div class="w-24 h-24 rounded">
-                  <img src=<?php echo "./foto_pengomentar/".$res['foto']?> class="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div class="ml-6 flex flex-col items-start justify-between">
-                <div class="flex flex-col items-start">
-                  <p><?php echo $res['nama']?></p>
-                  <p><?php echo $res['status']?></p>
-                </div>
-                <div class="space-x-2">
-                  <i class="fa-solid fa-star" style="color: #D3E564;"></i>
-                  <i class="fa-solid fa-star" style="color: #D3E564;"></i>
-                  <i class="fa-solid fa-star" style="color: #D3E564;"></i>
-                  <i class="fa-solid fa-star" style="color: #D3E564;"></i>
-                  <i class="fa-solid fa-star" style="color: #D3E564;"></i>
-                </div>
+      $sql = mysqli_query($mysqli, "SELECT * FROM testimoni");
+      while ($res = mysqli_fetch_array($sql)) {
+      ?>
+        <div class="bg-white p-6 md:w-[50%] rounded-lg">
+          <div class="flex pb-6">
+            <div class="avatar">
+              <div class="w-24 h-24 rounded">
+                <img src=<?php echo "./foto_pengomentar/" . $res['foto'] ?> class="w-full h-full object-cover" />
               </div>
             </div>
-            <div class="text-justify">
-              <p><?php echo $res['komen']?></p>
+            <div class="ml-6 flex flex-col items-start justify-between">
+              <div class="flex flex-col items-start">
+                <p><?php echo $res['nama'] ?></p>
+                <p><?php echo $res['status'] ?></p>
+              </div>
+              <div class="space-x-2">
+                <i class="fa-solid fa-star" style="color: #D3E564;"></i>
+                <i class="fa-solid fa-star" style="color: #D3E564;"></i>
+                <i class="fa-solid fa-star" style="color: #D3E564;"></i>
+                <i class="fa-solid fa-star" style="color: #D3E564;"></i>
+                <i class="fa-solid fa-star" style="color: #D3E564;"></i>
+              </div>
             </div>
           </div>
-          <?php
-        }
+          <div class="text-justify">
+            <p><?php echo $res['komen'] ?></p>
+          </div>
+        </div>
+      <?php
+      }
       ?>
-      
+
     </div>
 
   </section>
@@ -253,7 +261,7 @@ include "navbar.php";
       <a href="./mapInteraktif.php" class="py-4 px-8 text-[#132758] bg-gradient-to-br from-[#ffffff] to-[#7CDBF0] rounded-lg hover:bg-gray-100 md:border-0 md:hover:text-blue-700 md:py-3 md:px-6 flex items-center"><span class="me-2 font-bold text-base md:text-[14px]">Map Interaktif</span><img src="./images/icon-map-dark.svg" alt="map"></a>
     </div>
   </section>
-  <?php include "footer.php"?>
+  <?php include "footer.php" ?>
 
   <script src="./carousel.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/daisyui@0.0.6/dist/full.js"></script>

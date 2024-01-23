@@ -66,6 +66,7 @@ if(isset($_GET['type']) && $_GET['type'] == 'tambah'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = str_replace(' ', '_', $nama_file);
     $path = "../gambar_lokasi/".$nama_file;
     move_uploaded_file($tmp_file, $path);
     $sql = mysqli_query($mysqli, "INSERT INTO lokasi (gambar_lokasi, id_wisata, deskripsi_lokasi) VALUES ('$nama_file', '$wisata', '$deskripsi_lokasi')");
@@ -90,10 +91,11 @@ if(isset($_GET['type']) && $_GET['type'] == 'edit'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
-    $path = "../gambar_lokasi/".$nama_file;
     if($nama_file == ''){ 
         $sql = mysqli_query($mysqli, "UPDATE lokasi SET deskripsi_lokasi = '$deskripsi_lokasi' WHERE id_lokasi = '$id'");
     }else{
+        $nama_file = str_replace(' ', '_', $nama_file);
+        $path = "../gambar_lokasi/".$nama_file;
         move_uploaded_file($tmp_file, $path);
         $sql = mysqli_query($mysqli, "UPDATE lokasi SET gambar_lokasi = '$nama_file', deskripsi_lokasi = '$deskripsi_lokasi' WHERE id_lokasi = '$id'");
     }

@@ -75,6 +75,7 @@ if(isset($_GET['type']) && $_GET['type'] == 'tambah'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = str_replace(' ', '_', $nama_file);
     $path = "../gambar_tempat/".$nama_file;
     move_uploaded_file($tmp_file, $path);
     $sql = mysqli_query($mysqli, "INSERT INTO wisata (kategori, gambar, headline, deskripsi) VALUES ('$kategori', '$nama_file', '$nama', '$deskripsi')");
@@ -113,6 +114,8 @@ if(isset($_GET['type']) && $_GET['type'] == 'edit'){
     if($nama_file == ''){ 
         $sql = mysqli_query($mysqli, "UPDATE wisata SET kategori = '$kategori', headline = '$nama', deskripsi = '$deskripsi' WHERE id_wisata = '$id'");
     }else{
+        $nama_file = str_replace(' ', '_', $nama_file);
+        $path = "../gambar_tempat/".$nama_file;
         move_uploaded_file($tmp_file, $path);
         $sql = mysqli_query($mysqli, "UPDATE wisata SET kategori = '$kategori', gambar = '$nama_file', headline = '$nama', deskripsi = '$deskripsi' WHERE id_wisata = '$id'");
     }

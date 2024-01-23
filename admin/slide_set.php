@@ -43,6 +43,7 @@ if(isset($_GET['type']) && $_GET['type'] == 'tambah'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
+    $nama_file = str_replace(' ', '_', $nama_file);
     $path = "../gambar_slide/".$nama_file;
     move_uploaded_file($tmp_file, $path);
     $sql = mysqli_query($mysqli, "INSERT INTO slide (gambar, headline, deskripsi) VALUES ('$nama_file', '$nama', '$deskripsi')");
@@ -68,10 +69,11 @@ if(isset($_GET['type']) && $_GET['type'] == 'edit'){
     $ukuran_file = $_FILES['gambar']['size'];
     $tipe_file = $_FILES['gambar']['type'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
-    $path = "../gambar_slide/".$nama_file;
     if($nama_file == ''){ 
         $sql = mysqli_query($mysqli, "UPDATE slide SET headline = '$nama', deskripsi = '$deskripsi' WHERE id_slide = '$id'");
     }else{
+        $nama_file = str_replace(' ', '_', $nama_file);
+        $path = "../gambar_slide/".$nama_file;
         move_uploaded_file($tmp_file, $path);
         $sql = mysqli_query($mysqli, "UPDATE slide SET gambar = '$nama_file', headline = '$nama', deskripsi = '$deskripsi' WHERE id_slide = '$id'");
     }
